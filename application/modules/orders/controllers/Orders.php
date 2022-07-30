@@ -1,5 +1,6 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
+use Dompdf\Dompdf;
 
 class Orders extends MY_Controller
 {
@@ -68,7 +69,8 @@ class Orders extends MY_Controller
 
         $this->datatables
             ->select("
-                order_number
+                id
+                , order_number
                 , order_date
                 , spm
                 , tracking_number
@@ -83,27 +85,31 @@ class Orders extends MY_Controller
 
         $this->datatables->edit_column('order_date', '$1', 'ymdTodmy(order_date)');
         $this->datatables->edit_column('tracking_number', '$1', 'status_order(tracking_number)');
+        $this->datatables->edit_column('spm', '$1', 'spm(spm)');
+        $this->datatables->edit_column('action', '$1', 'button_aksi_pemesanan(id)');
 
         echo $this->datatables->generate();
     }
 
-    public function detail($id) {
-        $data['base'] = strtolower(get_class($this));
-        $data['form_action'] = 'orders/store';
-        $data['action'] = 'add';
-        $data['supplier'] = $this->utils_model->list_data_for_select('suppliers');
-        $data['purchases'] = $this->utils_model->getEdit('purchases', array('id' => $id));
-        $data['purchase_code'] = $data['purchases']['purchase_code'];       
-        $purchase_detail_param['select'] = 'products.name, purchase_details.*';
-        $purchase_detail_param['table'] = 'purchase_details';
-        $purchase_detail_param['table_where'] = array('purchase_id' => $data['purchases']['id']);
-        $purchase_detail_param['table_detail'] = 'products';
-        $purchase_detail_param['on_table'] = 'purchase_details.product_id';
-        $purchase_detail_param['on_table_detail'] = 'products.id';
+    public function pdf($id)
+    {
+        // instantiate and use the dompdf class
+        $dompdf = new Dompdf();
 
-        $data['purchase_detail'] = $this->utils_model->listDataDetail($purchase_detail_param);
+        $data['data_order'] = $this->utils_model->getEdit($this->table, array('id' => $id));
+        $this->load->view('orders/pdf.php', $data);
 
+        $order_number = $data['data_order']['order_number'];
+        $html = $this->output->get_output();
+        $dompdf->loadHtml($html);
 
-        $this->template->load('template', 'orders/create_edit', $data);
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'potrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser
+        $dompdf->stream("Konfirmasi $order_number.pdf", array("Attachment" => 1));
     }
 }
