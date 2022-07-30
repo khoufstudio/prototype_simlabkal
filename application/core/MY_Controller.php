@@ -10,8 +10,12 @@
 
             $sesi_user = $this->session->userdata('username');
             $controller = $this->uri->segment(1);
-            if (($sesi_user == null) && ($controller != 'auth') && $controller != "migration") {
-                redirect('auth');
+            if (($sesi_user == null) 
+                && $controller != 'auth' 
+                && $controller != 'index' 
+                && $controller != "migration"
+            ) {
+                redirect('/');
             }
         }
     }

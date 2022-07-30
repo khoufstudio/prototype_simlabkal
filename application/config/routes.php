@@ -49,8 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'auth';
-$route['coba/form'] = 'coba/form_clientside_validation';
-
+$route['default_controller'] = 'mainpage';
 $route['404_override'] = 'error404';
 $route['translate_uri_dashes'] = FALSE;
