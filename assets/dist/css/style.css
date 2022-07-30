@@ -1,0 +1,52 @@
+ .main-sidebar, .left-side {
+    min-height: 0%;
+}
+
+.clearfix {
+    margin-bottom: 20px;
+}
+
+.clearfix::after {
+    /* background-color: blue; */
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.swal2-container {
+  zoom: 1.5;
+}
+
+.d-none {
+	display: none;
+}
+
+
+.text-right {
+	text-align: right;
+}
+
+.bl-0 {
+	border-left: 0;
+}
+
+.br-0 {
+	border-right: 0;
+}
+
+.hide-autofill {
+  display: none;
+}
+
+.box-header:before,
+.box-header:after {
+  content: none;
+}
+
+.select-has-error + span {
+  border: 1px solid red;
+}
+
+.px-15px {
+    padding: 0 15px 0 15px;
+}
