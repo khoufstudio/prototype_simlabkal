@@ -16,5 +16,12 @@ class M_orders extends CI_Model
     
     public function create($data) 
     {
+        $data_insert = array(
+            'order_number' =>  $data['order_number'],
+            'order_date' => $data['order_date'],
+            'owner' => $data['owner'],
+            'contact_person' => $data['contact_person'],
+            'address' => $data['address']
+        );
     }
 }

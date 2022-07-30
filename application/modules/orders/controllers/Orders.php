@@ -27,7 +27,8 @@ class Orders extends MY_Controller
         $data = $this->input->post();
 
         try {
-            validation($data, 'orders', $this->form_validation);
+            // avoid validation
+            // validation($data, 'orders', $this->form_validation);
 
             $this->M_orders->create($data);
 
@@ -47,7 +48,6 @@ class Orders extends MY_Controller
         $data['form_action'] = 'orders/store';
         $data['action'] = 'add';
         $data['supplier'] = $this->utils_model->list_data_for_select('suppliers');
-        $data['purchase_code'] = $this->M_orders->last_purchase_code();
 
         $this->template->load('template', 'orders/create_edit', $data);
     }
