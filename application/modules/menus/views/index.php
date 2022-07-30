@@ -60,14 +60,15 @@
             <?= input_text(['label' => 'Link', 'name' => 'link']); ?>
             <?= input_text(['label' => 'Urutan', 'name' => 'order_number']); ?>
             <?= input_text(['label' => 'Icon', 'name' => 'icon']); ?>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-link">Tutup</button>
+            <button id="button_submit" class="btn btn-success"><i id="icon_submit" class="fa fa-send" style="margin-right: 10px;"></i> Simpan</button>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button data-dismiss="modal" class="btn btn-link">Tutup</button>
-          <button id="button_submit" class="btn btn-success"><i id="icon_submit" class="fa fa-send" style="margin-right: 10px;"></i> Simpan</button>
-        </div>
-      </div>
-    </div> 
-  </form>
+      </div> 
+    </form>
+  </div>
 </div>
 
 <script>
@@ -126,4 +127,3 @@
     $('#modal_menu').modal('show');
   })
 </script>
-
