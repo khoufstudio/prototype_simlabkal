@@ -17,7 +17,7 @@
       <div class="box-body">
         <div class="row">
           <div class="col-sm-6">
-              <?= input_text(['label' => 'Nomer Order', 'name' => 'order_number', 'disabled' => true, 'value' => date('Ym'). strtoupper(substr(md5(microtime()),rand(0,26),3))], false); ?>
+              <?= input_text(['label' => 'Nomer Order', 'name' => 'order_number', 'other_attributes' => 'readonly', 'value' => date('Ym'). strtoupper(substr(md5(microtime()),rand(0,26),3))], false); ?>
           </div>
           <div class="col-sm-6">
             <?= input_text(['label' => 'Tanggal Masuk', 'name' => 'order_date', 'type' => 'date', 'value' => '', 'disabled' => false], false); ?>
@@ -34,6 +34,36 @@
         <div class="row">
           <div class="col-sm-6">
             <?= input_text(['label' => 'Alamat', 'name' => 'address', 'value' => '', 'disabled' => false], false); ?>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="spm">SPM</label>
+              <div
+                style="
+                  display: flex;
+                  align-items: end;
+                  gap: 10px;
+              ">
+                <div class="radio">
+                  <label for="">
+                    <input type="radio" name="spm" value="0">
+                    Tidak Ditentukan
+                  </label>
+                </div>
+                <div class="radio">
+                  <label for="">
+                    <input type="radio" name="spm" value="5">
+                    5 hari
+                  </label>
+                </div>
+                <div class="radio">
+                  <label for="">
+                    <input type="radio" name="spm" value="7">
+                    7 hari
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="row">

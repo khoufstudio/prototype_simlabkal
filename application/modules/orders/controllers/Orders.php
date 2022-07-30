@@ -82,6 +82,7 @@ class Orders extends MY_Controller
         }
 
         $this->datatables->edit_column('order_date', '$1', 'ymdTodmy(order_date)');
+        $this->datatables->edit_column('tracking_number', '$1', 'status_order(tracking_number)');
 
         echo $this->datatables->generate();
     }

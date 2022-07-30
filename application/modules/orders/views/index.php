@@ -49,8 +49,8 @@
     "endDate": endOfMonth
   });
 
-  var tanggalorders = $('#tanggal_orders').val();
-  $('#periode').val(tanggalorders);
+  var tanggalOrders = $('#tanggal_orders').val();
+  $('#periode').val(tanggalOrders);
 
   // setup for datatables
   var argDataTables = {
@@ -66,7 +66,7 @@
     custom_columns: [
       {"index": 0, "val": "index"},
     ],
-    date: tanggalorders
+    date: tanggalOrders
   };
 
   var table = setupDatatable(argDataTables);

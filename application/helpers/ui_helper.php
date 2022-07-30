@@ -30,6 +30,7 @@
         $currentValue = isset($value["value"]) ? $value["value"] : "";
         $required = isset($value["required"]) ? "required" : "";
         $class = isset($value["class"]) ? $value["class"] : "";
+        $other_attributes = isset($value["other_attributes"]) ? $value["other_attributes"] : "";
 
         $input = "<input 
             type='".$type."' 
@@ -40,6 +41,7 @@
             value='".$currentValue."'
                 ".$disabled."
                 ".$required."
+                ".$other_attributes."
         >";
 
         if (isset($value['error'])) {
