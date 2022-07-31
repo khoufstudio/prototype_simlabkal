@@ -34,9 +34,13 @@ function button_aksi_pemesanan($id)
 {
     $base_url = base_url();
     $link_download_pdf = $base_url . "orders/pdf/$id";
+    $link_edit = $base_url . "orders/update/$id";
     $list_button = <<<HTML
         <a href="$link_download_pdf" class="btn btn-block btn-danger btn-xs" style="display: inline;margin-right: 8px;">
-            <i class="fa fa-file-pdf-o">
+            <i class="fa fa-file-pdf-o"></i>
+        </a>
+        <a href="$link_edit" class="btn btn-xs btn-primary item-edit">
+            <i class="fa fa-edit"></i>
         </a>
     HTML;
 

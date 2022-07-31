@@ -32,4 +32,13 @@ class M_orders extends CI_Model
 
         return $result;
     }
+
+    public function update($id, $data)
+    {
+        if ($data['setuju'] === '1') {
+            $data_update['tracking_number'] = 2;
+        }
+
+        return $this->utils_model->update($this->table, array('id' => $id), $data_update);
+    }
 }

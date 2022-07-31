@@ -112,4 +112,30 @@ class Orders extends MY_Controller
         // Output the generated PDF to Browser
         $dompdf->stream("Konfirmasi $order_number.pdf", array("Attachment" => 1));
     }
+
+    public function update($id)
+    {
+        $data = $this->input->post();
+        $result = new StdClass();
+        
+        try {
+            // validation
+            // validation($data, $validation_rules, $this->form_validation);
+
+            $this->M_orders->update($id, $data);
+
+            // insert log
+            $this->log_model->create('update orders');
+
+            $result->message = "sukses diupdate";
+            $result->success = true;
+        } catch (Exception $e) {
+            $result->success = false;
+            $result->message = $e->getMessage();        
+        }
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($result));
+    }
 }
