@@ -43,6 +43,7 @@
         </div>
         <div class="row">
           <div class="col-sm-12">
+            <a href="<?= base_url(). 'calibrations'; ?>" class="btn btn-default">Kembali</a>
             <button class="btn btn-primary" type="submit">Simpan</button>
           </div>
         </div>

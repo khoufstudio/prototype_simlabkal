@@ -8,7 +8,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Appotek</title>
+  <title>SimLabKal</title>
   <style>
     .daterangepicker{
         z-index: 1100 !important;
@@ -29,9 +29,9 @@
     <!-- Logo -->
     <a href="<?= site_url('dashboard'); ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>AP</b></span>
+      <span class="logo-mini"><b>SL</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Appotek</b></span>
+      <span class="logo-lg"><b>SimLabkal</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
