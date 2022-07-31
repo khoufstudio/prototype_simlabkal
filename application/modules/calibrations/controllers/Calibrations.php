@@ -56,6 +56,8 @@ class Calibrations extends MY_Controller
     {
         $data['base'] = strtolower(get_class($this));
         $data['form_action'] = 'calibrations/update';
+        $select = "order_number, spm, order_date, owner, address, contact_person";
+        $data['data'] = $this->utils_model->getEdit("orders", array("id" => $id), $select);
         $data['action'] = 'update';
 
         $this->template->load('template', 'calibrations/create_edit', $data);

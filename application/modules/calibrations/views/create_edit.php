@@ -1,5 +1,5 @@
 <!-- Content Header (Page header) -->
-<?= page_header("Pemesanan"); ?>
+<?= page_header("Kalibrasi"); ?>
 
 <!-- Main content -->
 <section class="content">
@@ -17,52 +17,27 @@
       <div class="box-body">
         <div class="row">
           <div class="col-sm-6">
-              <?= input_text(['label' => 'Nomer Order', 'name' => 'order_number', 'other_attributes' => 'readonly', 'value' => date('Ym'). strtoupper(substr(md5(microtime()),rand(0,26),3))], false); ?>
+              <?= input_text(['label' => 'Nomer Order', 'name' => 'order_number', 'other_attributes' => 'readonly', 'value' => $data['order_number']], false); ?>
           </div>
           <div class="col-sm-6">
-            <?= input_text(['label' => 'Tanggal Masuk', 'name' => 'order_date', 'type' => 'date', 'value' => '', 'disabled' => false], false); ?>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <?= input_text(['label' => 'Kepada', 'name' => 'owner', 'value' => '', 'disabled' => false], false); ?>
-          </div>
-          <div class="col-sm-6">
-            <?= input_text(['label' => 'Kontak Person', 'name' => 'contact_person', 'value' => '', 'disabled' => false], false); ?>
+            <?= input_text(['label' => 'Tanggal Masuk', 'name' => 'order_date', 'other_attributes' => 'readonly', 'value' => $data['order_date']], false); ?>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-6">
-            <?= input_text(['label' => 'Alamat', 'name' => 'address', 'value' => '', 'disabled' => false], false); ?>
+            <?= input_text(['label' => 'Kepada', 'name' => 'owner', 'value' => $data['owner'], 'other_attributes' => 'readonly'], false); ?>
+          </div>
+          <div class="col-sm-6">
+            <?= input_text(['label' => 'Kontak Person', 'name' => 'contact_person', 'value' => $data['contact_person'], 'disabled' => true], false); ?>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <?= input_text(['label' => 'Alamat', 'name' => 'address', 'value' => $data['address'], 'disabled' => true], false); ?>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="spm">SPM</label>
-              <div
-                style="
-                  display: flex;
-                  align-items: end;
-                  gap: 10px;
-              ">
-                <div class="radio">
-                  <label for="">
-                    <input type="radio" name="spm" value="0">
-                    Tidak Ditentukan
-                  </label>
-                </div>
-                <div class="radio">
-                  <label for="">
-                    <input type="radio" name="spm" value="5">
-                    5 hari
-                  </label>
-                </div>
-                <div class="radio">
-                  <label for="">
-                    <input type="radio" name="spm" value="7">
-                    7 hari
-                  </label>
-                </div>
-              </div>
+              <?= input_text(['label' => 'SPM', 'name' => 'spm', 'value' => spm($data['spm']), 'disabled' => true], false); ?>
             </div>
           </div>
         </div>
