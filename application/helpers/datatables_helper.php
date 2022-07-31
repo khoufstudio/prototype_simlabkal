@@ -2,7 +2,6 @@
 
 function status_order($tracking_number)
 {
-
     switch ($tracking_number) {
         case '1':
             $status_tracking = "Pemesanan awal";
@@ -39,6 +38,19 @@ function button_aksi_pemesanan($id)
         <a href="$link_download_pdf" class="btn btn-block btn-danger btn-xs" style="display: inline;margin-right: 8px;">
             <i class="fa fa-file-pdf-o"></i>
         </a>
+        <a href="$link_edit" class="btn btn-xs btn-primary item-edit">
+            <i class="fa fa-edit"></i>
+        </a>
+    HTML;
+
+    return $list_button;
+}
+
+function button_aksi_kalibrasi($id)
+{
+    $base_url = base_url();
+    $link_edit = $base_url . "calibrations/edit/$id";
+    $list_button = <<<HTML
         <a href="$link_edit" class="btn btn-xs btn-primary item-edit">
             <i class="fa fa-edit"></i>
         </a>

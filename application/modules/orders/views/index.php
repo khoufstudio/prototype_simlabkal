@@ -156,9 +156,6 @@
             })
           } else {
             var message = data.message
-            // if (message.includes('Nama Supplier')) {
-            //   errorInputText('nama', message)              
-            // }
           }
         },
         complete: function() {
