@@ -47,8 +47,25 @@ class Orders extends MY_Controller
     {
         $data['base'] = strtolower(get_class($this));
         $data['form_action'] = 'orders/store';
-        $data['action'] = 'add';
-        $data['supplier'] = $this->utils_model->list_data_for_select('suppliers');
+        $data['action'] = 'Tambah';
+        $data['id'] = date('Ym'). strtoupper(substr(md5(microtime()),rand(0,26),3));
+
+        $this->template->load('template', 'orders/create_edit', $data);
+    }
+    
+    public function edit($id)
+    {
+        $data['base'] = strtolower(get_class($this));
+        $data['form_action'] = "orders/update/$id";
+        $data['action'] = 'Edit';
+        $data['data'] = $this->utils_model->getEdit('orders', array('id' => $id));
+
+        if ($data['data'] === null) {
+            echo "data tidak ditemukan";
+            return;
+        }
+
+        $data['id'] = $data['data']['order_number'];
 
         $this->template->load('template', 'orders/create_edit', $data);
     }

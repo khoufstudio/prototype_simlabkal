@@ -33,12 +33,16 @@ function button_aksi_pemesanan($id)
 {
     $base_url = base_url();
     $link_download_pdf = $base_url . "orders/pdf/$id";
-    $link_edit = $base_url . "orders/update/$id";
+    $link_update = $base_url . "orders/update/$id";
+    $link_edit = $base_url . "orders/edit/$id";
     $list_button = <<<HTML
-        <a href="$link_download_pdf" class="btn btn-block btn-danger btn-xs" style="display: inline;margin-right: 8px;">
+        <a href="$link_download_pdf" class="btn btn-block btn-danger btn-xs" style="display: inline;margin-right: 8px;padding: 3px;" title="download pdf">
             <i class="fa fa-file-pdf-o"></i>
         </a>
-        <a href="$link_edit" class="btn btn-xs btn-primary item-edit">
+        <a href="$link_update" class="btn btn-xs btn-success item-edit" title="update status">
+            <i class="fa fa-edit"></i>
+        </a>
+        <a href="$link_edit" class="btn btn-xs btn-primary" title="edit pemesanan">
             <i class="fa fa-edit"></i>
         </a>
     HTML;

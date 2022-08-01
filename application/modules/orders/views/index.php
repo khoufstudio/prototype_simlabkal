@@ -114,24 +114,15 @@
     $('#form_modal_order').attr('action', formUrl)
 
     $('#modal_modal_order').modal('show');
-    // $.ajax({
-    //   url: url
-    // }).done(function(res) {
-    //   $('#form_modal_order').attr('action', formUrl)
-    //   $('#nama').val(res.name);
-    //   $('#alamat').val(res.address);
-    //   $('#nomor_kontak').val(res.contact);
-
-    //    $('#modal_modal_order').modal('show');
-    // });
   });
 
   $('#form_modal_order').submit(function(e) {
       e.preventDefault()
+      debugger
 
       var form = $(this)
       var inputs = form.find('checkbox')
-      var data = new FormData(form[0])
+      var data = new FormData(form)
       var url = form.attr('action')
 
       $.ajax({

@@ -35,10 +35,29 @@ class M_orders extends CI_Model
 
     public function update($id, $data)
     {
-        if ($data['setuju'] === '1') {
+        if (isset($data['setuju']) && $data['setuju'] === '1') {
             $data_update['tracking_number'] = 2;
         }
 
+        if (isset($data['order_date'])) {
+            $data_update['order_date'] = $data['order_date'];
+        }
+
+        if (isset($data['owner'])) {
+            $data_update['owner'] = $data['owner'];
+        }
+
+        if (isset($data['contact_person'])) {
+            $data_update['contact_person'] = $data['contact_person'];
+        }
+
+        if (isset($data['address'])) {
+            $data_update['address'] = $data['address'];
+        }
+
+        if (isset($data['spm'])) {
+            $data_update['spm'] = $data['spm'];
+        }
         return $this->utils_model->update($this->table, array('id' => $id), $data_update);
     }
 }
