@@ -87,6 +87,7 @@ class Calibrations extends MY_Controller
                 , 'test' as action
             ")
             ->from($this->table)
+            ->where('tracking_number', 2)
             ->where($whereRaw);
 
         if (!isset($input['order'])) {

@@ -50,3 +50,8 @@
 .px-15px {
     padding: 0 15px 0 15px;
 }
+
+.container-form-button {
+  display: flex;
+  gap: 8px;
+}

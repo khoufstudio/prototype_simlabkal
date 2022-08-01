@@ -58,7 +58,8 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12 container-form-button">
+            <a href="<?= base_url(). 'orders'; ?>" class="btn btn-default">Kembali</a>
             <button id="button_submit" class="btn btn-primary" type="submit">Simpan</button>
           </div>
         </div>

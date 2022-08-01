@@ -20,7 +20,7 @@
               <?= input_text(['label' => 'Nomer Order', 'name' => 'order_number', 'other_attributes' => 'readonly', 'value' => $data['order_number']], false); ?>
           </div>
           <div class="col-sm-6">
-            <?= input_text(['label' => 'Tanggal Masuk', 'name' => 'order_date', 'other_attributes' => 'readonly', 'value' => $data['order_date']], false); ?>
+            <?= input_text(['label' => 'Tanggal Masuk', 'name' => 'order_date', 'other_attributes' => 'readonly', 'value' => ymdToDmy($data['order_date'])], false); ?>
           </div>
         </div>
         <div class="row">
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12">
+          <div class="col-sm-12 container-form-button">
             <a href="<?= base_url(). 'calibrations'; ?>" class="btn btn-default">Kembali</a>
             <button class="btn btn-primary" type="submit">Simpan</button>
           </div>
