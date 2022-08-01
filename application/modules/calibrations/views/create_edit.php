@@ -44,6 +44,7 @@
         <div class="row">
           <div class="col-sm-12 container-form-button">
             <a href="<?= base_url(). 'calibrations'; ?>" class="btn btn-default">Kembali</a>
+            <button class="btn btn-success" type="submit" value="save_as_draft">Simpan Sebagai Draft</button>
             <button class="btn btn-primary" type="submit">Simpan</button>
           </div>
         </div>

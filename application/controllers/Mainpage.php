@@ -26,6 +26,6 @@ class MainPage extends MX_Controller {
 
     public function index()
     {
-        echo "fdfd";
+        echo "under construction";
     }
 }
