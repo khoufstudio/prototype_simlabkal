@@ -10,7 +10,7 @@
 </head>
 <body style="background-color: #0891B2;padding-top: 200px;display: flex;justify-content: center;align-items: center;">
   <div style="width: 600px;">
-    <h1 class="text-bold text-gray">Lacak Kalibrasi</h1>
+    <h1 class="text-bold" style="color: white;">Lacak Kalibrasi</h1>
     <div id="error_message" class="alert alert-danger" style="display: none;">
       Resi Tidak ditemukan
     </div>
