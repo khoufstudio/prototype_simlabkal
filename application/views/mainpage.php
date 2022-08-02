@@ -30,8 +30,46 @@
           <h4 class="modal-title">Update Pembayaran</h4>  
         </div>
         <div class="modal-body">
-          <p>No RESI: <span id="no_resi_result"></span></p>
-          <p id="tracking_number"></p>
+          <p>No RESI: <span id="no_resi_result text-bold text-blue"></span></p>
+          <div>
+            <ul class="timeline">
+
+              <!-- timeline item -->
+              <li>
+                  <!-- timeline icon -->
+                  <i class="fa fa-check bg-blue"></i>
+                  <div class="timeline-item">
+                      <h3 class="timeline-header">Persetujuan Pemesanan</h3>
+                  </div>
+              </li>
+              <li>
+                  <!-- timeline icon -->
+                  <i class="fa fa-check bg-blue"></i>
+                  <div class="timeline-item">
+                      <h3 class="timeline-header">Proses Dokumen</h3>
+                  </div>
+              </li>
+              <li>
+                  <!-- timeline icon -->
+                  <i class="fa fa-check bg-blue"></i>
+                  <div class="timeline-item">
+                      <h3 class="timeline-header">Konfirmasi Bayar</h3>
+                  </div>
+              </li>
+              <li>
+                  <!-- timeline icon -->
+                  <i class="fa fa-check bg-blue"></i>
+                  <div class="timeline-item">
+                      <h3 class="timeline-header">Sertifikat Selesai</h3>
+                  </div>
+              </li>
+              <!-- END timeline item -->
+            </ul>
+
+          </div>
+          <div class="clearfix" style="margin-bottom: 0;">
+            <a id="download_sertifikat" href="#" class="btn btn-danger pull-right" style="display: none;">Download Sertifikat</a>
+          </div>
         </div>
       </div>
     </div> 
@@ -44,19 +82,32 @@
     var noResi = $('#no_resi').val()
     var url = baseUrl + 'mainpage/tracking/' + noResi
 
+    $('#no_resi_result').text(noResi)
+
     $.ajax({
       url,
-      success: function(data) {
-        if (data.tracking_number !== null) {
-          $('#tracking_number').text(data.tracking_number)
-          $('#no_tracking_result').text(noResi)
+      beforeSend: function() {
+        $('#error_message').hide()
+        $('#download_sertifikat').hide()
+      },
+      success: function({ tracking_number }) {
+        if (tracking_number !== null) {
           $('#modal_tracking').modal('show');
+
+          if (tracking_number == 4) {
+            $('#download_sertifikat').show()
+          }
         } else {
           // resi tidak ditemukan
           $('#error_message').show()
         }
       }
     })
+  })
+
+  $('#download_sertifikat').click(function(e) {
+    e.preventDefault()
+    alert('Mohon maaf, masih dalam tahap pengembangan')
   })
 </script>
 </html>
