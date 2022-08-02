@@ -79,7 +79,6 @@
     </form>
   </div>
 </section>
-
 <script>
   $('#button_tambah_kalibrasi').click(function(e) {
     e.preventDefault()
@@ -88,16 +87,32 @@
     var calibrationNumber = $('#table_kalibrasi tr:last-child > td:nth-child(1)').text();
     calibrationNumber++; 
 
-    $('#table_kalibrasi').append(`
+    $('#table_kalibrasi tbody').append(`
       <tr>
         <td>${calibrationNumber}</td>
-        <td>coy</td>
-        <td>coy</td>
-        <td>coy</td>
-        <td>coy</td>
-        <td>coy</td>
-        <td>coy</td>
-        <td>coy</td>
+        <td>
+          <input type="text" class="form-control">
+        </td>
+        <td>
+          <input type="text" class="form-control">
+        </td>
+        <td>
+          <input type="text" class="form-control">
+        </td>
+        <td>
+          <input type="text" class="form-control">
+        </td>
+        <td>
+          <input type="text" class="form-control">
+        </td>
+        <td>
+          <input type="text" class="form-control">
+        </td>
+        <td>
+          <button type="button" class="btn hapus-row btn-sm btn-danger" style="display: inline-block;">
+            <i class="fa fa-fw fa-trash-o"></i>
+          </button> 
+        </td>
       </tr>
     `)
   })
