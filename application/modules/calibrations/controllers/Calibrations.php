@@ -55,10 +55,14 @@ class Calibrations extends MY_Controller
     public function edit($id)
     {
         $data['base'] = strtolower(get_class($this));
-        $data['form_action'] = 'calibrations/update';
-        $select = "order_number, spm, order_date, owner, address, contact_person";
+        $data['form_action'] = 'calibrations/store';
+        $select = "id, order_number, spm, order_date, owner, address, contact_person";
         $data['data'] = $this->utils_model->getEdit("orders", array("id" => $id), $select);
         $data['action'] = 'update';
+        $data['calibrations'] = $this->utils_model->listData('calibrations',
+            array('order_id' => $id),
+            'subject, brand, calibration_officer, calibration_completion_date, description, typist'
+        );
 
         $this->template->load('template', 'calibrations/create_edit', $data);
     }
