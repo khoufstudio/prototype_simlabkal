@@ -68,3 +68,16 @@ function button_aksi_kalibrasi($id)
 
     return $list_button;
 }
+
+function button_aksi_keuangan($id)
+{
+    $base_url = base_url();
+    $link_update = $base_url . "finances/update/$id";
+    $list_button = <<<HTML
+        <a href="$link_update" class="btn btn-xs btn-success item-edit" title="update status">
+            <i class="fa fa-edit"></i>
+        </a>
+    HTML;
+
+    return $list_button;
+}

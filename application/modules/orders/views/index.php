@@ -118,7 +118,6 @@
 
   $('#form_modal_order').submit(function(e) {
       e.preventDefault()
-      debugger
 
       var form = $(this)
       var inputs = form.find('checkbox')
