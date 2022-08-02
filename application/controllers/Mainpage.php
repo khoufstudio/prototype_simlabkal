@@ -29,4 +29,15 @@ class MainPage extends MX_Controller {
         // echo "under construction";
         $this->load->view('mainpage');
     }
+
+    public function tracking($id)
+    {
+        $result = array(
+            'tracking_number' => 4
+        );
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($result));
+    }
 }
