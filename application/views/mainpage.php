@@ -30,35 +30,34 @@
           <h4 class="modal-title">Update Pembayaran</h4>  
         </div>
         <div class="modal-body">
-          <p>No RESI: <span id="no_resi_result text-bold text-blue"></span></p>
+          <p>No RESI: <span id="no_resi_result" class="text-bold text-blue"></span></p>
           <div>
             <ul class="timeline">
-
               <!-- timeline item -->
               <li>
                   <!-- timeline icon -->
-                  <i class="fa fa-check bg-blue"></i>
+                  <i id="icon_persetujuan_pemesanan" class="fa fa-check bg-blue"></i>
                   <div class="timeline-item">
                       <h3 class="timeline-header">Persetujuan Pemesanan</h3>
                   </div>
               </li>
               <li>
                   <!-- timeline icon -->
-                  <i class="fa fa-check bg-blue"></i>
+                  <i id="icon_proses_dokumen" class="fa fa-check bg-blue"></i>
                   <div class="timeline-item">
                       <h3 class="timeline-header">Proses Dokumen</h3>
                   </div>
               </li>
               <li>
                   <!-- timeline icon -->
-                  <i class="fa fa-check bg-blue"></i>
+                  <i id="icon_konfirmasi_bayar" class="fa fa-check bg-blue"></i>
                   <div class="timeline-item">
                       <h3 class="timeline-header">Konfirmasi Bayar</h3>
                   </div>
               </li>
               <li>
                   <!-- timeline icon -->
-                  <i class="fa fa-check bg-blue"></i>
+                  <i id="icon_sertifikat_selesai" class="fa fa-check bg-blue"></i>
                   <div class="timeline-item">
                       <h3 class="timeline-header">Sertifikat Selesai</h3>
                   </div>
@@ -92,6 +91,37 @@
       },
       success: function({ tracking_number }) {
         if (tracking_number !== null) {
+          tracking_number = parseInt(tracking_number)
+          
+          switch (tracking_number) {
+            case 1:
+              aktif('#icon_persetujuan_pemesanan')
+              nonAktif('#icon_proses_dokumen')
+              nonAktif('#icon_konfirmasi_bayar')
+              nonAktif('#icon_sertifikat_selesai')
+              break;
+            case 2:
+              aktif('#icon_persetujuan_pemesanan')
+              aktif('#icon_proses_dokumen')
+              nonAktif('#icon_konfirmasi_bayar')
+              nonAktif('#icon_sertifikat_selesai')
+              break;
+            case 3:
+              aktif('#icon_persetujuan_pemesanan')
+              aktif('#icon_proses_dokumen')
+              aktif('#icon_konfirmasi_bayar')
+              nonAktif('#icon_sertifikat_selesai')
+              break;
+            case 4:
+              aktif('#icon_persetujuan_pemesanan')
+              aktif('#icon_proses_dokumen')
+              aktif('#icon_konfirmasi_bayar')
+              aktif('#icon_sertifikat_selesai')
+              break;
+          
+            default:
+              break;
+          }
           $('#modal_tracking').modal('show');
 
           if (tracking_number == 4) {
@@ -109,5 +139,13 @@
     e.preventDefault()
     alert('Mohon maaf, masih dalam tahap pengembangan')
   })
+
+  function aktif(id) {
+    $(id).addClass('bg-blue')
+  }
+
+  function nonAktif(id) {
+    $(id).removeClass('bg-blue')
+  }
 </script>
 </html>
