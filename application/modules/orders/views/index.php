@@ -121,7 +121,7 @@
 
       var form = $(this)
       var inputs = form.find('checkbox')
-      var data = new FormData(form)
+      var data = new FormData(form[0])
       var url = form.attr('action')
 
       $.ajax({
