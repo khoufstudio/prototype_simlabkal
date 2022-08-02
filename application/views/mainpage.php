@@ -30,7 +30,8 @@
           <h4 class="modal-title">Update Pembayaran</h4>  
         </div>
         <div class="modal-body">
-
+          <p>No RESI: <span id="no_resi_result"></span></p>
+          <p id="tracking_number"></p>
         </div>
       </div>
     </div> 
@@ -39,7 +40,6 @@
 <script>
   var baseUrl = '<?= base_url(); ?>'
   var url = baseUrl + 'mainpage/tracking/'
-  console.log(url)
 
   $('#button_lacak').click(function() {
     var noResi = $('#no_resi').val()
@@ -49,14 +49,15 @@
       url,
       success: function(data) {
         if (data.tracking_number !== null) {
-          
+          $('#tracking_number').text(data.tracking_number)
+          $('#no_tracking_result').text(noResi)
+          $('#modal_tracking').modal('show');
         } else {
           // resi tidak ditemukan
           $('#error_message').show()
         }
       }
     })
-    $('#modal_tracking').modal('show');
   })
 </script>
 </html>
