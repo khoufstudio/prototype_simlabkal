@@ -26,6 +26,7 @@ class MainPage extends MX_Controller {
 
     public function index()
     {
-        echo "under construction";
+        // echo "under construction";
+        $this->load->view('mainpage');
     }
 }
