@@ -23,11 +23,11 @@ class M_calibrations extends CI_Model
             $this->utils_model->delete('calibrations', array('order_id' => $data['order_id']));
         }
 
-        $listData = array(count($data['merk']), count($data['order_id']), count($data['subjek']), count($data['petugas_kalibrasi']));
+        $listData = array(count($data['merk']), count($data['subjek']), count($data['petugas_kalibrasi']));
         sort($listData);
 
 
-        for ($i=0; $i < $listData[count($listData)]; $i++) { 
+        for ($i=0; $i < $listData[count($listData) - 1]; $i++) { 
             $data_insert = array(
                 'order_id' =>  $data['order_id'],
                 'subject' => $data['subjek'][$i],
@@ -43,8 +43,8 @@ class M_calibrations extends CI_Model
 
         if (!isset($data['submit'])) {
             $this->utils_model->update('orders'
-                , array('id' => $data['order_id']
-                , array('tracking_number' => 3)) 
+                , array('id' => $data['order_id'])
+                , array('tracking_number' => 3)
             );
         }
 

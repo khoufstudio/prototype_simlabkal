@@ -62,7 +62,7 @@
                 </tr>
               </thead>
               <tbody>
-                <?php if (isset($calibrations)) : ?>
+                <?php if (count($calibrations) > 0) : ?>
                   <?php
                   for ($i=0; $i < count($calibrations); $i++) { 
                     $number = $i + 1;
