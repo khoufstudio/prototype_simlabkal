@@ -30,10 +30,13 @@ class MainPage extends MX_Controller {
         $this->load->view('mainpage');
     }
 
-    public function tracking($id)
+    public function tracking($order_number)
     {
+        $data = $this->utils_model->getEdit('orders', array('order_number' => $order_number), 'tracking_number');
+        $tracking_number = $data['tracking_number'] ?? null;
+
         $result = array(
-            'tracking_number' => 4
+            'tracking_number' => $tracking_number
         );
 
         $this->output

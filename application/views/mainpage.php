@@ -39,11 +39,10 @@
 </body>
 <script>
   var baseUrl = '<?= base_url(); ?>'
-  var url = baseUrl + 'mainpage/tracking/'
 
   $('#button_lacak').click(function() {
     var noResi = $('#no_resi').val()
-    url += noResi
+    var url = baseUrl + 'mainpage/tracking/' + noResi
 
     $.ajax({
       url,
