@@ -29,7 +29,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition" style="background-image: linear-gradient(#82c91e, #FFFF66);overflow-y: hidden;">
+<body class="hold-transition" style="background-color: #0891B2;overflow-y: hidden;">
 	<div class="login-box">
 		<div class="login-logo">
 			<a href="<?php echo base_url(); ?>">
