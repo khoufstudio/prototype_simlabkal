@@ -35,7 +35,7 @@
 			<a href="<?php echo base_url(); ?>">
 				<strong>Login</strong>
 			</a>
-			<h5 style="color: white;">Aplikasi Apotek</h5>
+			<h5 style="color: white;">Aplikasi SimLabKal</h5>
 		</div>
 		<?php //$warning_message = "tes"; 
 		?>

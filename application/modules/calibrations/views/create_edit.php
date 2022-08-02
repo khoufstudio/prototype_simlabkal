@@ -42,6 +42,30 @@
           </div>
         </div>
         <div class="row">
+          <div class="col-sm-12">
+            <button class="btn btn-success pull-right margin-bottom">Tambah</button>
+            <table id="table_products" class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Subjek</th>
+                  <th>Merk</th>
+                  <th>Petugas Kalibrasi</th>
+                  <th>Tgl Selesai Kalibrasi</th>
+                  <th>Keterangan</th>
+                  <th>Diketahui</th>
+                  <th><i class="fa fa-cog"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="8" class="text-center">Belum ada data</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+        </div>
+        <div class="row">
           <div class="col-sm-12 container-form-button">
             <a href="<?= base_url(). 'calibrations'; ?>" class="btn btn-default">Kembali</a>
             <button class="btn btn-success" type="submit" value="save_as_draft">Simpan Sebagai Draft</button>
