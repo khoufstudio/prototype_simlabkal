@@ -7,14 +7,20 @@ function status_order($tracking_number)
             $status_tracking = "Pemesanan awal";
             break;
         case '2':
-            $status_tracking = "Pemesanan diverifikasi";
+            $status_tracking = "Proses Dokumen";
+            break;
+        case '3':
+            $status_tracking = "Konfirmasi Bayar";
+            break;
+        case '4':
+            $status_tracking = "Sertifikat Selesai";
             break;
         default:
             $status_tracking = "Belum ada Pemesanan";
             break;
     }
     $output = <<<HTML
-        <small class="label bg-red">$status_tracking</small>
+        <small class="label bg-primary">$status_tracking</small>
     HTML;
 
     return $output;
