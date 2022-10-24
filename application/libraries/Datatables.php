@@ -559,7 +559,7 @@
       $retval = array();
       $hold = array();
       $balance = 0;
-      $parts = explode($delimiter, $str);
+      $parts = explode($delimiter, $str ?? '');
 
       foreach($parts as $part)
       {
