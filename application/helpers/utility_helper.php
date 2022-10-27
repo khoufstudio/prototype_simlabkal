@@ -36,7 +36,7 @@
     function ymdtoDmy($tgl)
     {
         $xreturn_ = '';
-        if (trim($tgl) != '' AND $tgl != '0000-00-00') {
+        if (trim($tgl ?? '') != '' AND $tgl != '0000-00-00') {
 
             if (strpos($tgl, "-")) {
                 $pcs = explode("-", $tgl);
@@ -137,35 +137,17 @@
             $xreturn_ = $pcs[2] . $separator . $pcs[1] . $separator . $pcs[0] . " " . $tgl_array[1];
         } 
         return $xreturn_;
-    }
+  }
 
-    function rest_count($debt_rest, $total_debt): string
-    {
-        $total_rest = 0;
-        if (!is_null($debt_rest)) {
-            $total_rest = $debt_rest;
-        } else {
-            $total_rest = $total_debt;
-        }
+  function rest_count($debt_rest, $total_debt): string
+  {
+      $total_rest = 0;
+      if (!is_null($debt_rest)) {
+          $total_rest = $debt_rest;
+      } else {
+          $total_rest = $total_debt;
+      }
           
-        return intToRupiah($total_rest);
-    }
-
-    function validation($data, $validation_rules, $form_validation)
-    {
-        $form_validation->set_data($data);
-
-        if (is_array($validation_rules)) {
-            $form_validation->set_rules($validation_rules);
-
-            if ($form_validation->run() == FALSE) {
-                throw new Exception(strip_tags(validation_errors()));
-            }
-        } else {
-            if ($form_validation->run($validation_rules) == FALSE) {
-                throw new Exception(strip_tags(validation_errors()));
-            }
-
-        }
-    }
+      return intToRupiah($total_rest);
+  }
 ?>

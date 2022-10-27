@@ -82,7 +82,7 @@ if (isset($_ENV['DB_PORT'])) {
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => "localhost:$db_port",
+	'hostname' => $_ENV['HOSTNAME'].":$db_port",
 	'username' => $_ENV['DB_USERNAME'],
 	'password' => $_ENV['DB_PASSWORD'],
 	'database' => $_ENV['DATABASE'],

@@ -8,15 +8,7 @@
 			<div class="clearfix">
 				<a href="<?= base_url('users/create');?>" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Tambah</a>
 			</div>
-
-			<?php if (isset($form_message)) { ?>
-				<div class="alert alert-success alert-dismissible">
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-					<h4><i class="icon fa fa-check"></i> Berhasil!</h4>
-					<?php echo $form_message; ?>
-				</div>
-			<?php } ?>
-
+			<?= alert_message($form_message, $this->session); ?>
 			<table id="table" class="table table-bordered table-striped">
 				<thead>
 					<tr>

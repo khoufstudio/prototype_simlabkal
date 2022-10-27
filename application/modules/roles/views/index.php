@@ -10,8 +10,7 @@
       </div>
     </div>
     <div class="box-body">
-      <?= alert_message($form_message); ?>
-
+      <?= alert_message($form_message, $this->session); ?>
       <table id="table" class="table table-bordered table-striped">
         <thead>
           <tr>

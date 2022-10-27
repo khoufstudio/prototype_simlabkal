@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="box-body">
-      <?= alert_message($form_message); ?>
+      <?= alert_message($form_message, $this->session); ?>
       <table id="table" class="table table-border table-striped" style="width: 100%;">
         <thead>
           <tr>

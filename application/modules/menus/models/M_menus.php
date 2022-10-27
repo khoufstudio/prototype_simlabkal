@@ -91,8 +91,7 @@ class M_menus extends CI_Model
         return $menu_display;
     }
 
-    function menu_based_role($id)
-    {
+    function menu_based_role($id) {
         $menu_ids = $this->utils_model->listData('menu_roles', array('role_id' => $id), 'menu_id');
         $menus_id = array();
 

@@ -67,7 +67,8 @@ class Users extends MY_Controller
     } 
     
     // untuk edit via modal 
-    public function get_edit($id) { 
+    public function get_edit($id)
+    { 
         $arrWhere['id'] = $id; 
         $data = $this->M_users->get_edit($id); 
         $this->output ->set_content_type('application/json') ->set_output(json_encode($data)); 

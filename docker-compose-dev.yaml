@@ -5,9 +5,20 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-apache.dev
-    # command: sh -c "composer install && php serve"
+    container_name: prototype-simlabkal
     ports:
       - "8080:80"
     volumes:
       - .:/var/www/html/
-      
+  db:
+    image: mysql:8.0.31
+    container_name: simlabkal-db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-volume:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+volumes:
+  mysql-volume:

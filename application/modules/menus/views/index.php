@@ -9,13 +9,7 @@
         <button id="add_menu" class="btn btn-success pull-right"><i class="fa fa-plus margin-right-lg"></i> Tambah</button>
       </div>
 
-      <?php if (isset($form_message)) { ?>
-        <div class="alert alert-success alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <h4><i class="icon fa fa-check"></i> Berhasil!</h4>
-          <?php echo $form_message; ?>
-        </div>
-      <?php } ?>
+      <?= alert_message($form_message, $this->session); ?>
 
       <table id="table" class="table table-bordered table-striped">
         <thead>
@@ -60,15 +54,14 @@
             <?= input_text(['label' => 'Link', 'name' => 'link']); ?>
             <?= input_text(['label' => 'Urutan', 'name' => 'order_number']); ?>
             <?= input_text(['label' => 'Icon', 'name' => 'icon']); ?>
-          </div>
-          <div class="modal-footer">
-            <button data-dismiss="modal" class="btn btn-link">Tutup</button>
-            <button id="button_submit" class="btn btn-success"><i id="icon_submit" class="fa fa-send" style="margin-right: 10px;"></i> Simpan</button>
-          </div>
         </div>
-      </div> 
-    </form>
-  </div>
+        <div class="modal-footer">
+          <button data-dismiss="modal" class="btn btn-link">Tutup</button>
+          <button id="button_submit" class="btn btn-success"><i id="icon_submit" class="fa fa-send" style="margin-right: 10px;"></i> Simpan</button>
+        </div>
+      </div>
+    </div> 
+  </form>
 </div>
 
 <script>
@@ -127,3 +120,4 @@
     $('#modal_menu').modal('show');
   })
 </script>
+

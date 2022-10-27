@@ -457,7 +457,7 @@
       foreach($this->or_like as $val)
         $this->ci->db->or_like($val[0], $val[1], $val[2]);
 
-      if(strlen($this->distinct) > 0)
+      if(strlen($this->distinct ?? '') > 0)
       {
         $this->ci->db->distinct($this->distinct);
         $this->ci->db->select($this->columns);
